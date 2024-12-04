@@ -1,30 +1,15 @@
 package Coffee
 
-class Cappuccino extends Coffee(intensity, mlOfWater){
-  val coffeeName = "Cappuccino"
-
-  def getMlOfMilk: Int = mlOfMilk
-
-  def getCoffee: String = coffeeName
-
-
-  @Override
+class Cappuccino(coffeeIntensity: Intensity, val mlOfMilk: Int, val mlOfWater: Int) extends Coffee(coffeeIntensity) {
+  val coffeeName: String = "Cappuccino"
 
   def printCoffeeDetails(): Unit = {
-    println(s"$coffeeName water: ${getMlOfWater} ml, milk: $mlOfMilk ml")
+    println(s"$coffeeName - Intensity: $coffeeIntensity, Milk: $mlOfMilk ml, Water: $mlOfWater ml")
   }
 
-  // base method
-  def makeRecipe(): Unit = {
-    println(s"Intensity set to $coffeeIntensity")
-    println(s"Adding $mlOfMilk ml of milk")
-  }
-
-  // specialized method
-  def makeCappuccino: Cappuccino = {
-    println(s"Making $coffeeName")
-    this.makeRecipe()
+  def makeCappuccino(): Cappuccino = {
+    println(s"Making $coffeeName...")
+    println(s"Adding $mlOfMilk ml of milk and $mlOfWater ml of water")
     this
   }
-
 }

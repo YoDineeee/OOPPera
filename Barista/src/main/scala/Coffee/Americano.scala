@@ -1,19 +1,15 @@
 package Coffee
 
-class Americano (intensity: Intensity, var mlOfWater: Int) extends Coffee(intensity){
-
-  val coffeeName = "Americano"
-
-  def getMlOfWater: Int = mlOfWater
+case class Americano(coffeeIntensity: Intensity, mlOfWater: Int) extends Coffee(coffeeIntensity) {
+  val coffeeName: String = "Americano"
 
   def printCoffeeDetails(): Unit = {
-    println(s"$coffeeName water: $mlOfWater ml")
+    println(s"$coffeeName - Intensity: $coffeeIntensity, Water: $mlOfWater ml")
   }
 
-  def makeAmericano(): Unit = {
-    println("Making Americano")
-    println(s"Intensity set to $coffeeIntensity")
+  def makeAmericano(): Americano = {
+    println(s"Making $coffeeName...")
     println(s"Adding $mlOfWater ml of water")
+    this
   }
-
 }

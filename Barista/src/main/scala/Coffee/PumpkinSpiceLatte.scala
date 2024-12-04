@@ -1,34 +1,21 @@
 package Coffee
 
-class PumpkinSpiceLatte extends SyrupCappuccino (
-                         intensity: Intensity,
-                         mlOfWater: Int,
-                         mlOfMilk: Int,
-                         syrup: SyrupType,
-                         var mgOfPumpkinSpice: Int
-                       ) extends Coffee(intensity, mlOfWater, mlOfMilk, syrup) {
-
-  val coffeeName = "Pumpkin Spice Latte"
-
-  def getMgOfPumpkinSpice: Int = mgOfPumpkinSpice
-
-  def getName: String = coffeeName
-
-  @Override
-
+case class PumpkinSpiceLatte(
+                              coffeeIntensity: Intensity,
+                              mlOfMilk: Int,
+                              mlOfWater: Int,
+                              syrupType: SyrupType,
+                              syrupAmount: Int
+                            ) extends Coffee(coffeeIntensity) {
+  val coffeeName: String = "Pumpkin Spice Latte"
+@Override
   def printCoffeeDetails(): Unit = {
-    println(s"$coffeeName water: ${getMlOfWater} ml, milk: ${getMlOfMilk} ml, syrup: ${getSyrup}, pumpkin spice: $mgOfPumpkinSpice mg")
+    println(s"$coffeeName - Intensity: $Intensity, Milk: $mlOfMilk ml, Water: $mlOfWater ml, Syrup: $syrupType, Pumpkin Spice: $syrupAmount mg")
   }
 
-  @Override
-   def makeRecipe(): Unit = {
-    super.makeRecipe()
-    println(s"Adding $mgOfPumpkinSpice mg of pumpkin spice")
-  }
-
-  def makePumpkinSpiceLatte: PumpkinSpiceLatte = {
-    println(s"Making $coffeeName")
-    this.makeRecipe()
+  def makePumpkinSpiceLatte(): PumpkinSpiceLatte = {
+    println(s"Making $coffeeName...")
+    println(s"Adding $mlOfMilk ml of milk, $mlOfWater ml of water, and $syrupType syrup")
     this
   }
 }
