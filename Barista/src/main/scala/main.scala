@@ -1,6 +1,12 @@
 import Barista.Barista
+import java.util.Arrays
 
- class main{
+object main {
+ def main(args: Array[String]): Unit = {
+  val barista = new Barista()
+  barista.makeCoffees(Arrays.asList("Cappuccino", "SyrupCappuccino", "PumpkinSpiceLatte"))
+ }
 }
+
 
 
