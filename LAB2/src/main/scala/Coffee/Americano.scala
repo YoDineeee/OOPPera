@@ -1,0 +1,5 @@
+package Coffee
+
+class Americano {
+
+}

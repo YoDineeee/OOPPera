@@ -1,0 +1,5 @@
+package Barista
+
+class Barista {
+
+}
